@@ -56,6 +56,54 @@ public class Fraction {
     public double decimal() {
         return (double) numerator / denominator;
     }
+
+    public boolean isProper(){
+        return numerator<denominator;
+    }
+
+    public boolean isImproper(){
+        return numerator>denominator;
+    }
+    public boolean isEquivalent(Fraction fraction){
+        return (this.denominator* fraction.numerator) == (this.numerator * fraction.denominator);
+    }
+
+    public Fraction add(Fraction fraction){
+        int newNumerator = (this.denominator* fraction.numerator) + (fraction.denominator* this.numerator);
+        int newDenominator= this.denominator * fraction.denominator;
+        int gcd= gCD(newNumerator, newDenominator);
+        return  new Fraction(newNumerator/gcd, newDenominator/gcd);
+    }
+
+    public Fraction multiply(Fraction fraction){
+        int newNumerator = numerator * fraction.numerator ;
+        int newDenominator= denominator * fraction.denominator;
+        return  new Fraction(newNumerator, newDenominator);
+    }
+
+    public Fraction divide(Fraction fraction){
+        int newNumerator = numerator * fraction.denominator ;
+        int newDenominator= denominator * fraction.numerator;
+        return  new Fraction(newNumerator, newDenominator);
+    }
+
+
+    private int gCD(int numerator, int denominator){
+        Fraction fraction = new Fraction(numerator, denominator);
+        if (fraction.isProper()){
+            if(numerator == 0){
+                return denominator;
+            }
+            return gCD(numerator, denominator % numerator);
+        }
+        else{
+            if(denominator == 0){
+                return numerator;
+            }
+            return gCD(denominator, numerator % denominator);
+        }
+    }
+
     @Override
     public String toString() {
         return "Fraction{" +
