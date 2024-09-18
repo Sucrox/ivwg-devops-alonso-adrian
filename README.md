@@ -3,5 +3,5 @@
 > Este proyecto es una Plantilla de apoyo docente de la asignatura.
 
 ### GitHub Actions Badge ###
->![CI](https://github.com/Sucrox/ivwg-devops-alonso-adrian/actions/workflows/ci.yml/badge.svg)
+>![CI](https://github.com/Sucrox/ivwg-devops-alonso-adrian/actions/workflows/test-sonar.yml/badge.svg)
 > 
