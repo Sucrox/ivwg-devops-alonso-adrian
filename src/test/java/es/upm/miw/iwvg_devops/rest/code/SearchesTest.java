@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class SearchesTest {
 
@@ -20,5 +21,15 @@ public class SearchesTest {
     void testFindUserIdBySomeProperFraction(){
         assertEquals(List.of("2","3","5"), new Searches().findUserIdBySomeProperFraction()
                 .collect(Collectors.toList()));
+    }
+
+    @Test
+    void testFindFirstDecimalFractionByUserName(){
+        assertEquals(2.0, new Searches().findFirstDecimalFractionByUserName("Ana"));
+    }
+
+    @Test
+    void testFindFirstDecimalFractionByUserNameNull(){
+        assertNull(new Searches().findFirstDecimalFractionByUserName("Pedro"));
     }
 }
