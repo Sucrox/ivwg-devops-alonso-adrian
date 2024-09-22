@@ -15,4 +15,10 @@ public class SearchesTest {
         assertEquals(List.of("Ana"), new Searches().findUserNameBySomeImproperFraction()
               .collect(Collectors.toList()));
     }
+
+    @Test
+    void testFindUserIdBySomeProperFraction(){
+        assertEquals(List.of("2","3","5"), new Searches().findUserIdBySomeProperFraction()
+                .collect(Collectors.toList()));
+    }
 }
